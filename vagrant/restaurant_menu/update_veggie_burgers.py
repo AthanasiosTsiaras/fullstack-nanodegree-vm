@@ -50,4 +50,4 @@ for item in veggieBurgers:
     print(item.price)
     print(item.restaurant.name + "\n")
 
-print("added menu items!")
+print("updated menu items!")
