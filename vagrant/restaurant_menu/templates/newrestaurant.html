@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Restaurant</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <style>
+        body { font-family: sans-serif; padding: 40px; background-color: #f4f4f4; }
+        .form-container { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            max-width: 400px;
+        }
+        h1 { color: #333; font-size: 1.5rem; }
+        input[type="text"] { 
+            width: 100%; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+        }
+        button { 
+            background-color: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 10px 15px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+        }
+        button:hover { background-color: #218838; }
+        .cancel-link { font-size: 0.9em; color: #666; text-decoration: none; margin-left: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h1>Add a New Restaurant</h1>
+        
+        <form action="{{ url_for('newRestaurant', restaurant_id=restaurant_id) }}" method="POST">
+            <label for="name">Restaurant Name</label>
+            <input type="text" id="name" name="name" placeholder="Ex: The Pizza Place" required>
+            
+            <div style="margin-top: 20px;">
+                <button type="submit">Create</button>
+                <a class="cancel-link" href="{{ url_for('restaurant_detail') }}">Cancel</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

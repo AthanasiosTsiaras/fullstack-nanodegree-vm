@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Manager</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .restaurant-item {
+            display: flex;
+            justify-content: space-between;
+            max-width: 500px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .actions a {
+            margin-left: 10px;
+            font-size: 0.8em;
+            text-decoration: none;
+        }
+
+        .edit-link {
+            color: #f0ad4e;
+        }
+
+        .delete-link {
+            color: #d9534f;
+        }
+
+        .name-link {
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Restaurants</h1>
+    <a href="{{ url_for('newRestaurant') }}">Add New Restaurant</a>
+    <hr>
+
+    {% for r in restaurants %}
+    <div class="restaurant-item">
+        <a class="name-link" href="{{ url_for('restaurantMenu', restaurant_id=r.id) }}">
+            {{ r.name }}
+        </a>
+
+        <div class="actions">
+            <a class="edit-link" href="{{ url_for('editRestaurant', restaurant_id=r.id) }}">
+                Edit
+            </a>
+            <a class="delete-link" href="{{ url_for('deleteRestaurant', restaurant_id=r.id) }}">
+                Delete
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+
+</body>
+
+</html>
